@@ -29,45 +29,47 @@ void findType(int arr[] , int n)
 			max_index2=i;
 		}
 	}
-	int count=0;
+	for(int i=0;i<n;i++)
+	cout<<arr[i]<<" ";
+	cout<<endl;
 	if(min_index==0 && max_index2==n-1)
-	count=1;
+	cout<<"Ascending with maximum element =  "<<max_element<<endl;
 	else if(min_index2==n-1 && max_index==0)
-	count=2;
+	cout<<"Descending with maximum element =  "<<max_element<<endl;
 	else if(max_index==min_index2+1)
-	count=3;
+	cout<<"Descending rotated with maximum element =  "<<max_element<<endl;
 	else
-	count=4;
+	cout<<"Ascending rotated with maximum element =  "<<max_element<<endl;
 	/*for(int i=0;i<n;i++)
 	cout<<arr[i]<<" ";
 	cout<<endl;
 	//cout<<min_index<<" "<<min_index2<<endl;
 	//cout<<max_index<<" "<<max_index2<<endl;*/
-	cout<<max_element<<" "<<count<<endl;
+	
 	return;
 } 
 
 // Driver code 
 int main() 
 { 
-	int arr1[] = { 4, 5, 6, 6, 1, 1, 2, 3}; // Ascending rotated 
+	int arr1[] = { 4, 5, 6, 6, 6, 1, 1, 1, 2, 3}; // Ascending rotated with duplicates
 	int n = sizeof (arr1) / sizeof (arr1[0]); 
 	findType(arr1, n); 
 
-	int arr2[] = { 2, 1, 1, 7, 7, 5, 4, 3}; // Descending rotated 
+	int arr2[] = { 2, 1, 1, 1, 7, 7, 7, 5, 4, 3}; // Descending rotated with duplicates
 	n = sizeof(arr2) / sizeof (arr2[0]); 
 	findType(arr2, n); 
 
-	int arr3[] = {1,  1, 2, 3, 4, 5, 5, 5}; // Ascending 
+	int arr3[] = { 1, 1, 1, 2, 3, 4, 5, 8, 8, 8}; // Ascending with duplicates
 	n = sizeof(arr3) / sizeof (arr3[0]); 
 	findType(arr3, n); 
 
-	int arr4[] = { 9, 9, 9, 5, 4, 3, 2, 1, 1, 1, 1}; // Descending 
+	int arr4[] = { 9, 9, 9, 5, 4, 3, 2, 1, 1, 1}; // Descending with duplicates
 	n = sizeof(arr4) / sizeof (arr4[0]); 
 	findType(arr4, n); 
 
     int arr5[] = { 4, 5, 6, 1, 2, 3}; // Ascending rotated 
-     n = sizeof (arr5) / sizeof (arr5[0]); 
+    n = sizeof (arr5) / sizeof (arr5[0]); 
     findType(arr5, n); 
   
     int arr6[] = { 2, 1, 7, 5, 4, 3}; // Descending rotated 
