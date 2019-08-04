@@ -1,0 +1,85 @@
+// C++ program to find type of array, ascending 
+// descending, clockwise rotated or anti-clockwise 
+// rotated. 
+#include<bits/stdc++.h> 
+using namespace std; 
+
+// Function to find the type of an array 
+// and maximum element in it. 
+void findType(int arr[] , int n) 
+{   int min_element = INT_MAX, max_element = INT_MIN;
+    int min_index,max_index,max_index2,min_index2;
+	for(int i=0;i<n;i++){
+		if(arr[i]<min_element){
+			min_element=arr[i];
+			min_index=i;
+		    min_index2=i;
+
+		}
+		if(arr[i]==min_element ){
+			min_index2=i;
+		}
+		if(arr[i]>max_element){
+			max_element=arr[i];
+			max_index=i;
+		    max_index2=i;
+
+		}
+		if(arr[i]==max_element  ){
+			max_index2=i;
+		}
+	}
+	int count=0;
+	if(min_index==0 && max_index2==n-1)
+	count=1;
+	else if(min_index2==n-1 && max_index==0)
+	count=2;
+	else if(max_index==min_index2+1)
+	count=3;
+	else
+	count=4;
+	/*for(int i=0;i<n;i++)
+	cout<<arr[i]<<" ";
+	cout<<endl;
+	//cout<<min_index<<" "<<min_index2<<endl;
+	//cout<<max_index<<" "<<max_index2<<endl;*/
+	cout<<max_element<<" "<<count<<endl;
+	return;
+} 
+
+// Driver code 
+int main() 
+{ 
+	int arr1[] = { 4, 5, 6, 6, 1, 1, 2, 3}; // Ascending rotated 
+	int n = sizeof (arr1) / sizeof (arr1[0]); 
+	findType(arr1, n); 
+
+	int arr2[] = { 2, 1, 1, 7, 7, 5, 4, 3}; // Descending rotated 
+	n = sizeof(arr2) / sizeof (arr2[0]); 
+	findType(arr2, n); 
+
+	int arr3[] = {1,  1, 2, 3, 4, 5, 5, 5}; // Ascending 
+	n = sizeof(arr3) / sizeof (arr3[0]); 
+	findType(arr3, n); 
+
+	int arr4[] = { 9, 9, 9, 5, 4, 3, 2, 1, 1, 1, 1}; // Descending 
+	n = sizeof(arr4) / sizeof (arr4[0]); 
+	findType(arr4, n); 
+
+    int arr5[] = { 4, 5, 6, 1, 2, 3}; // Ascending rotated 
+     n = sizeof (arr5) / sizeof (arr5[0]); 
+    findType(arr5, n); 
+  
+    int arr6[] = { 2, 1, 7, 5, 4, 3}; // Descending rotated 
+    n = sizeof(arr6) / sizeof (arr6[0]); 
+    findType(arr6, n); 
+  
+    int arr7[] = { 1, 2, 3, 4, 5, 8}; // Ascending 
+    n = sizeof(arr7) / sizeof (arr7[0]); 
+    findType(arr7, n); 
+  
+    int arr8[] = { 9, 5, 4, 3, 2, 1}; // Descending 
+    n = sizeof(arr8) / sizeof (arr8[0]); 
+    findType(arr8, n); 
+	return 0; 
+} 
