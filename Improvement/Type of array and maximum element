@@ -32,9 +32,7 @@ void findType(int arr[] , int n)
 		
 		//In case of duplication, min_index2 will store the last occurrence of min_element
 		if(arr[i]==min_element )
-		{
 			min_index2=i;
-		}
 		
 		//while iterating a larger element is found ,
 		// store it in max_element
@@ -46,19 +44,13 @@ void findType(int arr[] , int n)
 			max_element=arr[i];
 			max_index1=i;
 		    max_index2=i;
-
 		}
 		
 		//In case of duplication, max_index2 will store the last occurrence of max_element
-		if(arr[i]==max_element  )
-		{
+		if(arr[i]==max_element)
 			max_index2=i;
-		}
 	}
-	for(int i=0;i<n;i++)
-	cout<<arr[i]<<" ";
-	cout<<endl;
-	
+
 	//First Occurrence of Minimum element is at the start of array
 	//Last  Occurrence of Maximum element is at the end of array
 	//Array is in Ascending Order
